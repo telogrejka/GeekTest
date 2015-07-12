@@ -1,0 +1,26 @@
+﻿@model GeekTest.Models.test
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удалить</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>test</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.test_name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.test_name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Назад", "Index")
+    </p>
+}

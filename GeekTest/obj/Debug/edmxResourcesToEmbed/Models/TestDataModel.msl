@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GeekTestModelStoreContainer" CdmEntityContainer="GeekTestEntities">
+    <EntitySetMapping Name="answers">
+      <EntityTypeMapping TypeName="GeekTestModel.answers">
+        <MappingFragment StoreEntitySet="answers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+          <ScalarProperty Name="parent_question" ColumnName="parent_question" />
+          <ScalarProperty Name="correct_answer" ColumnName="correct_answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="questions">
+      <EntityTypeMapping TypeName="GeekTestModel.questions">
+        <MappingFragment StoreEntitySet="questions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="parent_test" ColumnName="parent_test" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="test">
+      <EntityTypeMapping TypeName="GeekTestModel.test">
+        <MappingFragment StoreEntitySet="test">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="test_name" ColumnName="test_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

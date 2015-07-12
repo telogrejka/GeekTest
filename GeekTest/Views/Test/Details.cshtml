@@ -1,0 +1,22 @@
+﻿@model GeekTest.Models.test
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детали</h2>
+
+<fieldset>
+    <legend>test</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.test_name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.test_name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

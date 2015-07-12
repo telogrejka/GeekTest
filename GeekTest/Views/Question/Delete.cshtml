@@ -1,0 +1,33 @@
+﻿@model GeekTest.Models.questions
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление вопрос</h2>
+
+<h3>Вы действительно хотите удалить этот вопрос?</h3>
+<fieldset>
+    <legend>questions</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.question)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.question)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.parent_test)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.parent_test)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Назад", "Index")
+    </p>
+}

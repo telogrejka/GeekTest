@@ -1,0 +1,38 @@
+﻿@model GeekTest.Models.test
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Редактировать</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>test</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.test_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.test_name)
+            @Html.ValidationMessageFor(model => model.test_name)
+        </div>
+
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Назад", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

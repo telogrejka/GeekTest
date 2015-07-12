@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Панель управления</h2>
+<p>
+    @Html.ActionLink("Редактор тестов", "../Test/Index")
+</p>
+<p>
+    @Html.ActionLink("Редактор вопросов", "../Question/Index")
+</p>
+<p>
+    @Html.ActionLink("Редактор ответов", "../Answer/Index")
+</p>
