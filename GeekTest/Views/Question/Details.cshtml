@@ -5,7 +5,7 @@
 }
 
 <h2>Детали</h2>
-
+<br />
 <fieldset>
     <legend>questions</legend>
 
@@ -20,10 +20,11 @@
          @Html.DisplayNameFor(model => model.parent_test)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.parent_test)
+        @*@Html.DisplayFor(model => model.parent_test)*@
+        @Html.Display("parent_test")
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
     @Html.ActionLink("Назад", "Index")
 </p>

@@ -18,6 +18,6 @@ namespace GeekTest.Models
         {
         }
 
-        public DbSet<test> tests { get; set; }
+        public DbSet<tests> tests { get; set; }
     }
 }

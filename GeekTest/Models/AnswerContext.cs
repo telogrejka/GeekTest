@@ -19,5 +19,6 @@ namespace GeekTest.Models
         }
 
         public DbSet<answers> answers { get; set; }
+        public DbSet<questions> questions { get; set; }
     }
 }

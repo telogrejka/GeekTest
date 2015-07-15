@@ -188,7 +188,10 @@
     <Compile Include="Controllers\AnswerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\ResultsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TestingController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -202,9 +205,7 @@
     <Compile Include="Models\questions.cs">
       <DependentUpon>TestDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\test.cs">
-      <DependentUpon>TestDataModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\RolesContext.cs" />
     <Compile Include="Models\TestContext.cs" />
     <Compile Include="Models\TestDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -220,6 +221,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TestDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tests.cs">
+      <DependentUpon>TestDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersInRolesContext.cs" />
+    <Compile Include="Models\webpages_Roles.cs">
+      <DependentUpon>TestDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\webpages_UsersInRoles.cs">
+      <DependentUpon>TestDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -363,6 +374,13 @@
     <Content Include="Views\Answer\Edit.cshtml" />
     <Content Include="Views\Answer\Delete.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Testing\Index.cshtml" />
+    <Content Include="Views\Results\Index.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

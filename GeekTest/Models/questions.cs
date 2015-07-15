@@ -11,14 +11,11 @@ namespace GeekTest.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class questions
     {
         public int id { get; set; }
-        [Display(Name = "Вопрос")]
         public string question { get; set; }
-        [Display(Name = "ID теста")]
         public Nullable<int> parent_test { get; set; }
     }
 }

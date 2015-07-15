@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2 style="font-weight:600">@ViewBag.Title</h2>
+                <p>
+                    <label style="font-size:1.1em; padding-left:5px" id="countdown">Осталось времени: </label>
+                </p>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<html>
+
+<body>
+
+
+    <ol>
+        @for (int i = 0; i < ViewBag.QuestionsList.Count; i++)
+        {
+            <li>@ViewBag.QuestionsList[@i]
+                <ul style="padding-left:20px">
+                    @for (int j = 0; j < ViewBag.AnswerList[i].Count; j++)
+                    {
+                        <li>
+                            <input style="width:15px" type="radio" value=@ViewBag.AnswerList[i][j]> @ViewBag.AnswerList[i][j]
+                        </li>
+                    }
+                </ul>   
+            </li>
+        }
+    </ol>
+
+</body>
+</html>

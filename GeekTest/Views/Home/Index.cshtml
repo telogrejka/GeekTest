@@ -8,13 +8,6 @@
                 <h1>Главная</h1>
                 @*<h2>@ViewBag.Message</h2>*@
             </hgroup>
-            @*<p>
-                To learn more about ASP.NET MVC visit
-                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
-                If you have any questions about ASP.NET MVC visit
-                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
-            </p>*@
         </div>
     </section>
 }
@@ -23,13 +16,13 @@
     <li class="ul">
         <h5>C# - Основы</h5>
         Тест "C# - Основы" посвящен основам программирования на C# под платформу .NET. <br>
-        <a href="">Начать</a>
+        @Html.ActionLink("Начать", "Index", "Testing", new {index=1}, null)
     </li>
 
     <li class="ul">
         <h5>C# - Средний уровень</h5>
         Тест С# среднего уровня посвящен практическим и теоретическим вопросам касающимся языка программирования С#.<br>
-        <a href="">Начать</a>
+        @Html.ActionLink("Начать", "Index", "Testing", new { index = 2 }, null)
     </li>
 </ol>
 
@@ -38,12 +31,12 @@
     <li class="ul">
         <h5>Java - Основы</h5>
         Тест по Java содержит вопросы, ответы на которые знает большинство разработчиков с минимальным опытом программирования на Java. <br>
-        <a href="">Начать</a>
+        @Html.ActionLink("Начать", "Index", "Testing", new { index = 3 }, null)
     </li>
 
     <li class="ul">
         <h5>Java- Средний уровень</h5>
         Тест ориентирован в первую очередь на программистов с опытом разработки программного обеспечения с использованием Java и родственных технологий.<br>
-        <a href="">Начать</a>
+        @Html.ActionLink("Начать", "Index", "Testing", new { index = 4 }, null)
     </li>
 </ol>

@@ -5,7 +5,7 @@
 }
 
 <h2>Детали</h2>
-
+<br />
 <fieldset>
     <legend>answers</legend>
 
@@ -20,7 +20,8 @@
          @Html.DisplayNameFor(model => model.parent_question)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.parent_question)
+        @*@Html.DisplayFor(model => model.parent_question)*@
+        @Html.Display("parent_question")
     </div>
 
     <div class="display-label">

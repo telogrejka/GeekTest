@@ -26,7 +26,7 @@ namespace GeekTest.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            test test = db.tests.Find(id);
+            tests test = db.tests.Find(id);
             if (test == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace GeekTest.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(test test)
+        public ActionResult Create(tests test)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace GeekTest.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            test test = db.tests.Find(id);
+            tests test = db.tests.Find(id);
             if (test == null)
             {
                 return HttpNotFound();
@@ -77,7 +77,7 @@ namespace GeekTest.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(test test)
+        public ActionResult Edit(tests test)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace GeekTest.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            test test = db.tests.Find(id);
+            tests test = db.tests.Find(id);
             if (test == null)
             {
                 return HttpNotFound();
@@ -108,7 +108,7 @@ namespace GeekTest.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            test test = db.tests.Find(id);
+            tests test = db.tests.Find(id);
             db.tests.Remove(test);
             db.SaveChanges();
             return RedirectToAction("Index");

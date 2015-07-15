@@ -7,7 +7,10 @@
       <Diagram DiagramId="4d1a171adc9b4a92abecf30b37c40d9e" Name="Diagram1">
         <EntityTypeShape EntityType="GeekTestModel.answers" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GeekTestModel.questions" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GeekTestModel.test" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GeekTestModel.webpages_Roles" Width="1.5" PointX="3" PointY="3.25" />
+        <EntityTypeShape EntityType="GeekTestModel.webpages_UsersInRoles" Width="1.5" PointX="5.25" PointY="3.25" />
+        <AssociationConnector Association="GeekTestModel.fk_RoleId" />
+        <EntityTypeShape EntityType="GeekTestModel.tests" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

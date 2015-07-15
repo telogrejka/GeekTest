@@ -1,0 +1,26 @@
+﻿@model GeekTest.Models.UserProfile
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удалить</h2>
+
+<h3>Вы действительно хотите удалить этого пользователя?</h3>
+<fieldset>
+    <legend>UserProfile</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Назад", "Index")
+    </p>
+}

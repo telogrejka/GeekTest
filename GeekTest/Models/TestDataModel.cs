@@ -7,14 +7,3 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-//using GeekTest.Models;
-//using System.Data.Entity;
-//public class TestContext : DbContext
-//{
-//    public TestContext()
-//        : base("TestDataModel")
-//    {
-//    }
-
-//    public DbSet<test> Test { get; set; }
-//}

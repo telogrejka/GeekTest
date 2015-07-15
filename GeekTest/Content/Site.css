@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
 }
+.display-label {
+    font-weight:bold;
+}
 
 body {
     background-color: #fff;

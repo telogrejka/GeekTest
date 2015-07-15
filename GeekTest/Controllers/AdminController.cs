@@ -10,11 +10,10 @@ namespace GeekTest.Controllers
     {
         //
         // GET: /Admin/
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }

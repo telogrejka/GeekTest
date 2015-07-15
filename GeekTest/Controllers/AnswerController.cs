@@ -13,6 +13,16 @@ namespace GeekTest.Controllers
     {
         private AnswerContext db = new AnswerContext();
 
+        //Построение выпадающего списка
+        private void PopulateQuestionsDropDownList(object selectedQuestion = null)
+        {
+            var query = (from d in db.questions
+                                    orderby d.id
+                                    select d).ToList<questions>();
+
+            ViewBag.parent_question = new SelectList(query, "id", "question", selectedQuestion);
+        }
+
         //
         // GET: /Answer/
 
@@ -26,6 +36,7 @@ namespace GeekTest.Controllers
 
         public ActionResult Details(int id = 0)
         {
+            getQuestionByID(id);
             answers answers = db.answers.Find(id);
             if (answers == null)
             {
@@ -34,11 +45,18 @@ namespace GeekTest.Controllers
             return View(answers);
         }
 
+        private void getQuestionByID(int id)
+        {
+            var query = (from d in db.questions where d.id == id select d.question);
+            ViewBag.parent_question = query.Single();
+        }
+
         //
         // GET: /Answer/Create
 
         public ActionResult Create()
         {
+            PopulateQuestionsDropDownList();
             return View();
         }
 
@@ -64,6 +82,7 @@ namespace GeekTest.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+            PopulateQuestionsDropDownList();
             answers answers = db.answers.Find(id);
             if (answers == null)
             {
