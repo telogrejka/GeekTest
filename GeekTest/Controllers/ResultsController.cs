@@ -11,9 +11,13 @@ namespace GeekTest.Controllers
         //
         // GET: /Results/
 
-        public ActionResult Index()
+        public ActionResult Index(int index)
         {
+            ViewBag.Index = index;
             ViewBag.Title = "Результаты теста";
+            ViewBag.TestName = Methods.GetTitle(index);
+            var Date = DateTime.Now;
+            ViewBag.Date = Date;
             return View();
         }
 

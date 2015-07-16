@@ -21,24 +21,7 @@ namespace GeekTest.Controllers
 
         private void GoTest(int index)
         {
-            switch (index)
-            {
-                case 1:
-                    ViewBag.Title = "Тест C# основы";
-                    break;
-                case 2:
-                    ViewBag.Title = "Тест C# - Средний уровень";
-                    break;
-                case 3:
-                    ViewBag.Title = "Тест Java - Основы";
-                    break;
-                case 4:
-                    ViewBag.Title = "Тест Java- Средний уровень";
-                    break;
-                default:
-                    ViewBag.Title = "Ошибка";
-                    return;
-            }
+            ViewBag.Title = Methods.GetTitle(index);
             
             //Получение данных теста
             AnswerContext db = new AnswerContext();
@@ -71,8 +54,10 @@ namespace GeekTest.Controllers
 
             ViewBag.AnswerList = AnswerList;
             ViewBag.QuestionsList = Questions.Values.ToList<string>();
-
+            ViewBag.Index = index;
+            ViewBag.Duration = (from t in db.tests
+                                where t.id == index
+                                select t.duration).First();
         }
-
     }
 }

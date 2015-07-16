@@ -1,18 +1,25 @@
 ﻿@model IEnumerable<GeekTest.Models.tests>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Тесты";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Тесты</h2>
 
 <p>
-    @Html.ActionLink("Создать новый", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
-<table>
+<table style="border-collapse: separate; border-spacing: 20px 10px; text-align:justify">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.test_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.test_info)
         </th>
         <th></th>
     </tr>
@@ -23,11 +30,19 @@
             @Html.DisplayFor(modelItem => item.test_name)
         </td>
         <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
+            @Html.DisplayFor(modelItem => item.duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.test_info)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) 
+            @Html.ActionLink("Детали", "Details", new { id=item.id })
             @Html.ActionLink("Удалить", "Delete", new { id=item.id })
         </td>
     </tr>
 }
+
 </table>
 <p>
     @Html.ActionLink("Назад", "../Admin/Index")

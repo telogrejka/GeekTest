@@ -1,12 +1,11 @@
 ﻿@{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Главная";
 }
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1>Главная</h1>
-                @*<h2>@ViewBag.Message</h2>*@
             </hgroup>
         </div>
     </section>
@@ -16,13 +15,13 @@
     <li class="ul">
         <h5>C# - Основы</h5>
         Тест "C# - Основы" посвящен основам программирования на C# под платформу .NET. <br>
-        @Html.ActionLink("Начать", "Index", "Testing", new {index=1}, null)
+        @Html.ActionLink("Начать", "Index", "BeforeStart", new {index=1}, null)
     </li>
 
     <li class="ul">
         <h5>C# - Средний уровень</h5>
         Тест С# среднего уровня посвящен практическим и теоретическим вопросам касающимся языка программирования С#.<br>
-        @Html.ActionLink("Начать", "Index", "Testing", new { index = 2 }, null)
+        @Html.ActionLink("Начать", "Index", "BeforeStart", new { index = 2 }, null)
     </li>
 </ol>
 
@@ -31,12 +30,12 @@
     <li class="ul">
         <h5>Java - Основы</h5>
         Тест по Java содержит вопросы, ответы на которые знает большинство разработчиков с минимальным опытом программирования на Java. <br>
-        @Html.ActionLink("Начать", "Index", "Testing", new { index = 3 }, null)
+        @Html.ActionLink("Начать", "Index", "BeforeStart", new { index = 3 }, null)
     </li>
 
     <li class="ul">
         <h5>Java- Средний уровень</h5>
         Тест ориентирован в первую очередь на программистов с опытом разработки программного обеспечения с использованием Java и родственных технологий.<br>
-        @Html.ActionLink("Начать", "Index", "Testing", new { index = 4 }, null)
+        @Html.ActionLink("Начать", "Index", "BeforeStart", new { index = 4 }, null)
     </li>
 </ol>

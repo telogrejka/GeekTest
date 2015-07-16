@@ -2,4 +2,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2 style="font-weight:600">@ViewBag.Title</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+<html>
+<body>
+    <p>
+       <b>@ViewBag.TestName</b>
+    </p>
+    <p>
+        <b>Правильных ответов: </b>
+    </p>
+    <p>
+        <b>Дата прохождения теста:</b> @ViewBag.Date
+    </p>
+    <p>
+        <b>@Html.ActionLink("Пройти тест еще раз", "Index", "Testing", new { index = ViewBag.Index }, null)</b>
+    </p>
+</body>
+</html>

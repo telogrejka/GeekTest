@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2 style="font-weight:600">@ViewBag.Title</h2>
+                <p><label style="font-size:1.1em;">Информация о тесте </label></p>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<p>
+    <b>Количество вопросов:</b> @ViewBag.QuestionsCount
+</p>
+<p>
+    <b>Продолжительность:</b> @ViewBag.Duration минут
+</p>
+<p>
+    <b>Описание:</b> 
+    @ViewBag.TestInfo
+</p>
+
+
+<input type="button" value="Начать тестирование" 
+       onclick="location.href='@Url.Action("Index", "Testing",
+        new { index = ViewBag.index}, null)'" />
+
+

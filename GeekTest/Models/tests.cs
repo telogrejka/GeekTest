@@ -11,10 +11,16 @@ namespace GeekTest.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class tests
     {
         public int id { get; set; }
+        [Display(Name="Название теста")]
         public string test_name { get; set; }
+        [Display(Name = "Время (минут)")]
+        public int duration { get; set; }
+        [Display(Name = "Описание")]
+        public string test_info { get; set; }
     }
 }

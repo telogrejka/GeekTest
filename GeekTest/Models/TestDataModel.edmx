@@ -28,6 +28,8 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="test_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="test_info" Type="text" />
         </EntityType>
         <EntityType Name="webpages_Roles">
           <Key>
@@ -134,6 +136,8 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="test_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="test_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -179,6 +183,8 @@
           <EntitySetMapping Name="tests">
             <EntityTypeMapping TypeName="GeekTestModel.tests">
               <MappingFragment StoreEntitySet="tests">
+                <ScalarProperty Name="test_info" ColumnName="test_info" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
                 <ScalarProperty Name="test_name" ColumnName="test_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>

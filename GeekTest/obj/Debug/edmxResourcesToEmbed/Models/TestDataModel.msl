@@ -39,6 +39,8 @@
     <EntitySetMapping Name="tests">
       <EntityTypeMapping TypeName="GeekTestModel.tests">
         <MappingFragment StoreEntitySet="tests">
+          <ScalarProperty Name="test_info" ColumnName="test_info" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
           <ScalarProperty Name="test_name" ColumnName="test_name" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>

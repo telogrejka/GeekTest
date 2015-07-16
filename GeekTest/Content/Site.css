@@ -98,7 +98,7 @@ h5, h6 {
 ----------------------------------------------------------*/
 .content-wrapper {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 900px;
 }
 
 #body {
@@ -216,6 +216,7 @@ ul#menu {
 }
 
     .featured .content-wrapper {
+        
         background-color: #7ac0da;
         background-image: -ms-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
         background-image: -o-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
@@ -236,7 +237,7 @@ ul#menu {
 
 /* page titles */
 hgroup.title {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 hgroup.title h1, hgroup.title h2 {
@@ -245,7 +246,7 @@ hgroup.title h1, hgroup.title h2 {
 
 hgroup.title h2 {
     font-weight: normal;
-    margin-left: 3px;
+    margin-left: 0px;
 }
 
 /* features */
@@ -442,9 +443,21 @@ input, textarea {
     width: 300px;
 }
 
+.questionText{
+    width: 700px;
+    background: #efeeef;
+    border: 0 none white;
+    overflow: hidden;
+    padding: 0;
+    outline: none;
+    resize: none; 
+}
+
 textarea {
     font-family: inherit;
     width: 500px;
+    resize: none;
+    font-size: 1em;
 }
 
     input:focus, textarea:focus {

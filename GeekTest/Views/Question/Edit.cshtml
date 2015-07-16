@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Редактирование вопроса</h2>
+<h2>Редактирование вопроса</h2><br />
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -19,7 +19,7 @@
             @Html.LabelFor(model => model.question)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.question)
+            @Html.TextAreaFor(model => model.question)
             @Html.ValidationMessageFor(model => model.question)
         </div>
 

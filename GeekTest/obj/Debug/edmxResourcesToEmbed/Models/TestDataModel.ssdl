@@ -23,6 +23,8 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="test_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="duration" Type="int" Nullable="false" />
+    <Property Name="test_info" Type="text" />
   </EntityType>
   <EntityType Name="webpages_Roles">
     <Key>

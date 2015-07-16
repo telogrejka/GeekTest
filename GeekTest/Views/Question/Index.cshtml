@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Создать новый", "Create")
 </p>
-<table>
+<table style="border-collapse: separate; border-spacing: 10px 0px; text-align:justify">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.question)
@@ -20,21 +20,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.question)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.parent_test)
-        </td>
-        <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Детали", "Details", new { id=item.id }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.question)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.parent_test)
+            </td>
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", new { id = item.id })
+                @Html.ActionLink("Детали", "Details", new { id = item.id })
+                @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
 <p>
