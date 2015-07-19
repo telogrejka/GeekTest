@@ -26,8 +26,8 @@ namespace GeekTest.Controllers
             QuestionContext db = new QuestionContext();
 
             int QuestionsCount = (from q in db.questions
-                                      where q.parent_test == index 
-                                      select q.id).Count();
+                                  where q.parent_test == index
+                                  select q.id).Count();
 
             ViewBag.QuestionsCount = QuestionsCount;
 

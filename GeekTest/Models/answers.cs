@@ -19,8 +19,8 @@ namespace GeekTest.Models
         [Display(Name = "Ответ")]
         public string answer { get; set; }
         [Display(Name = "Вопрос")]
-        public Nullable<int> parent_question { get; set; }
+        public int parent_question { get; set; }
         [Display(Name = "Верный")]
-        public Nullable<bool> correct_answer { get; set; }
+        public bool correct_answer { get; set; }
     }
 }

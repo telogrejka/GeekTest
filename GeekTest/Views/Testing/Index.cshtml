@@ -14,9 +14,15 @@
         </div>
     </section>
 }
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/rainbow-custom.min.js"></script>
+    @* Скрипт для отсчета времени до завершения теста *@
+    <script>
+        var duration = @ViewBag.Duration
 
-@* Скрипт для отсчета времени до завершения теста *@
-<script>
     function startTimer(duration, display) {
         var timer = duration, minutes, seconds;
         setInterval(function () {
@@ -30,80 +36,45 @@
 
             if (--timer < 0) {
                 timer = 0;
-                location.href = '@Url.Action("Index", "Results")'
+                alert('Время вышло.');
+                location.href = '@Url.Action("Index", "Results", new { index = @ViewBag.Index }, null)';
             }
         }, 1000);
     }
-    var duration = @ViewBag.Duration
-
+    
     window.onload = function () {
         var Minutes = 60 * duration,
             display = document.querySelector('#countdown');
         startTimer(Minutes, display);
     };
-</script>
-
-<html>
-<head>
-
-    <script type="text/javascript">
-        var observe;
-        if (window.attachEvent) {
-            observe = function (element, event, handler) {
-                element.attachEvent('on' + event, handler);
-            };
-        }
-        else {
-            observe = function (element, event, handler) {
-                element.addEventListener(event, handler, false);
-            };
-        }
-        function init() {
-            var text = document.getElementById('text');
-            function resize() {
-                text.style.height = 'auto';
-                text.style.height = text.scrollHeight + 'px';
-            }
-            /* 0-timeout to get the already changed text */
-            function delayedResize() {
-                window.setTimeout(resize, 0);
-            }
-            observe(text, 'change', resize);
-            observe(text, 'cut', delayedResize);
-            observe(text, 'paste', delayedResize);
-            observe(text, 'drop', delayedResize);
-            observe(text, 'keydown', delayedResize);
-
-            text.focus();
-            text.select();
-            resize();
-        }
     </script>
-
+    <script src="~/Scripts/loadQuestion.js"></script>
+    
 </head>
 <body>
-    <ol>
-        @for (int i = 0; i < ViewBag.QuestionsList.Count; i++)
-        {
-            <li>
-                <textarea id="text" class="questionText">
-                    @ViewBag.QuestionsList[@i]
-                </textarea>
-                <script>init();</script>
-                <ul style="padding-left:20px">
-                    @for (int j = 0; j < ViewBag.AnswerList[i].Count; j++)
-                    {
-                        <li>
-                            <input style="width:15px" type="radio" name="@ViewBag.QuestionsList[i]"
-                                   value=@ViewBag.AnswerList[i][j]> @ViewBag.AnswerList[i][j]
-                            </li>
-                    }
-                </ul>
-            </li>
-        }
-    </ol>
+    <script>
+        var tmp = @Html.Raw(Json.Encode(ViewBag.QuestionsIDs))
+        load(@ViewBag.Index);
+    </script>
 
-    <input type="button" value="Закончить тест"
-           onclick="location.href='@Url.Action("Index", "Results", new { index = ViewBag.Index }, null)'" />
+    @for (int i = 1; i <= ViewBag.QuestionsCount; i++)
+    {        
+        @Ajax.ActionLink(@i.ToString(), "GetQuestion", new { parentQuestion = ViewBag.QuestionsIDs[i-1] },
+        new AjaxOptions
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "divQuestion",
+            InsertionMode = InsertionMode.Replace
+        })
+    }
+
+    <div id="divQuestion"></div>
+    
+    <br />
+    <input type="button" id="replyButton" value="Ответить" onclick="load(@ViewBag.Index);" />
+
+    <br />
+    <input type="button" id="finishButton" value="Закончить тест" 
+           onclick="finishTest('Вы действительно хотите завершить прохождение теста?', @ViewBag.Index)" />
 </body>
 </html>

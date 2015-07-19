@@ -1,0 +1,31 @@
+﻿@model IEnumerable<GeekTest.Models.answers>
+@using GeekTest.Models;
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src='@Scripts.Url("~/bundles/rainbow-custom.min")' async> </script>
+    <script src="~/Scripts/disableCopy.js"></script>
+</head>
+<body >
+    @{
+        AnswerContext db = new AnswerContext();
+        var answer = Model.FirstOrDefault();
+        if (answer != null)
+        {
+            var query = (from q in db.questions
+                         where q.id == answer.parent_question
+                         select q).ToList();
+
+            <pre><code data-language="csharp" >@query.First().question </code></pre>
+        }
+    }
+    
+    @foreach (var item in Model)
+    {
+        <p style="padding-left:0px; margin:0px">
+            <input style="width:15px" type="radio" name="q" value=@item.correct_answer> @item.answer
+            
+        </p>
+    }
+</body>
+</html>
