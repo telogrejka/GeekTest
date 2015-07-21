@@ -1,6 +1,4 @@
-﻿//Скрипт выводит на страницу вопрос и варианты ответа на него
-
-var id = 0;
+﻿var id = 0;
 
 function load(testNum) {
     $.ajax({
@@ -9,7 +7,22 @@ function load(testNum) {
             $('#divQuestion').html(data);
         }
     });
+
+    if ($("#myForm input[type='radio']:checked").val() == 'value') {
+        $.ajax({
+            url: '../Testing/setAnswer?value=true&id=' + id
+        });
+    }
+    else {
+        if(id != 0){
+            $.ajax({
+                url: '../Testing/setAnswer?value=false&id=' + id
+            });
+        }
+    }
+
     id++;
+
     if (id > tmp.length) {
         finishTest('Вы ответили на все вопросы. Завершить прохождение теста?', testNum)
     }
@@ -17,5 +30,6 @@ function load(testNum) {
 
 function finishTest(message, testNum) {
     if (confirm(message))
-        location.href = '../Results/Index?index=' + testNum;
+        location.href = '../Testing/Finish';
+    
 }

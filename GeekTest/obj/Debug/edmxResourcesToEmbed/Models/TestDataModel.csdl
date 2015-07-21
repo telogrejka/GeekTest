@@ -5,16 +5,16 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="answer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="parent_question" Type="Int32" />
-    <Property Name="correct_answer" Type="Boolean" />
+    <Property Name="answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="parent_question" Type="Int32" Nullable="false" />
+    <Property Name="correct_answer" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="questions">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="question" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="question" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="parent_test" Type="Int32" />
   </EntityType>
   <EntityContainer Name="GeekTestEntities" annotation:LazyLoadingEnabled="true">
@@ -65,5 +65,6 @@
     <Property Name="test_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="duration" Type="Int32" Nullable="false" />
     <Property Name="test_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="questionsCount" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

@@ -3,10 +3,9 @@
 <html>
 <head>
     <script src="~/Scripts/jquery-1.8.2.js"></script>
-    <script src='@Scripts.Url("~/bundles/rainbow-custom.min")' async> </script>
     <script src="~/Scripts/disableCopy.js"></script>
 </head>
-<body >
+<body>
     @{
         AnswerContext db = new AnswerContext();
         var answer = Model.FirstOrDefault();
@@ -19,13 +18,13 @@
             <pre><code data-language="csharp" >@query.First().question </code></pre>
         }
     }
-    
-    @foreach (var item in Model)
-    {
-        <p style="padding-left:0px; margin:0px">
-            <input style="width:15px" type="radio" name="q" value=@item.correct_answer> @item.answer
-            
-        </p>
-    }
+    <form id="myForm" name="myForm">
+        @foreach (var item in Model)
+        {
+            <p>
+                <input style="width:15px" type="radio" name="radioQuestion" value=@item.correct_answer> @item.answer
+            </p>
+        }
+    </form>
 </body>
 </html>

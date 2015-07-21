@@ -6,24 +6,57 @@
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
-                <h2 style="font-weight:600">@ViewBag.Title</h2>
+                <h2 style="font-weight:600;">@ViewBag.Title</h2>
             </hgroup>
         </div>
     </section>
 }
 <html>
 <body>
+
+    <table style="font-size: 1.75em">
+        <tr>
+            <td style="padding-right:8px;">
+                <b>@ViewBag.TestName</b>
+            </td>
+            <td style="padding-right:12px;">
+                @{
+                    if (ViewBag.IsPassed)
+                    {
+                        <div style="color:green"> пройден </div>
+                    }
+                    else
+                    {
+                        <div style="color:red"> не пройден </div>
+                    }
+                }
+            </td>
+            <td id="mylink">
+                @Html.ActionLink("пройти еще раз", "Index", "Testing", new { index = ViewBag.Index }, null)
+            </td>
+        </tr>
+    </table>
+
     <p>
-       <b>@ViewBag.TestName</b>
-    </p>
-    <p>
-        <b>Правильных ответов: </b>
+        <b>Правильных ответов: </b>@ViewBag.TrueAnswers из @ViewBag.questionsCount (требуется @ViewBag.required)
     </p>
     <p>
         <b>Дата прохождения теста:</b> @ViewBag.Date
     </p>
-    <p>
-        <b>@Html.ActionLink("Пройти тест еще раз", "Index", "Testing", new { index = ViewBag.Index }, null)</b>
-    </p>
+
+    @for (int i = 0; i < ViewBag.questionList.Count; i++)
+    {
+        <pre><code>@ViewBag.questionList[i]</code></pre>
+        foreach (var answer in ViewBag.answersList[i])
+        {
+            
+            <p style="background-color: #00FF33;">
+                <input style="width: 15px; "
+                       checked="checked" type="radio" name="@i" disabled> @answer
+            </p>
+        }
+        <hr />
+    }
+   
 </body>
 </html>

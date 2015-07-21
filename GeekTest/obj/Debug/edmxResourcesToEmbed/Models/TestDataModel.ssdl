@@ -5,16 +5,16 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="answer" Type="varchar" MaxLength="100" />
-    <Property Name="parent_question" Type="int" />
-    <Property Name="correct_answer" Type="bit" />
+    <Property Name="answer" Type="text" Nullable="false" />
+    <Property Name="parent_question" Type="int" Nullable="false" />
+    <Property Name="correct_answer" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="questions">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="question" Type="varchar" MaxLength="100" />
+    <Property Name="question" Type="text" />
     <Property Name="parent_test" Type="int" />
   </EntityType>
   <EntityType Name="tests">
@@ -25,6 +25,7 @@
     <Property Name="test_name" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="duration" Type="int" Nullable="false" />
     <Property Name="test_info" Type="text" />
+    <Property Name="questionsCount" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_Roles">
     <Key>

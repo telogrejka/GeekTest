@@ -11,26 +11,33 @@ namespace GeekTest.Controllers
     public class TestingController : Controller
     {
         AnswerContext db = new AnswerContext();
-        static int [] QuestionsIDs;
+        static int [] QuestionsIDs;     //Массив ID-шников вопросов
+        static bool[] answersArray = new bool[21];     //Массив ответов (отсчет начинается с 1) костыль :(
+        static int testNum = 0;
+        static int questionsCount = 0;
         //
         // GET: /Testing/
 
         public ActionResult Index(int index)
         {
+            testNum = index;
+            var test = (from t in db.tests
+                        where t.id == testNum
+                        select t);
+            questionsCount = test.First().questionsCount;
+            ViewBag.Duration = test.First().duration;
+
             ViewBag.Title = Methods.GetTitle(index);
             ViewBag.Index = index;
-            ViewBag.Duration = (from t in db.tests
-                                where t.id == index
-                                select t.duration).First();
 
             QuestionsIDs = (from q in db.questions
                             where q.parent_test == index
                             orderby Guid.NewGuid()
-                            select q.id).Take(2).ToArray<int>();
+                            select q.id).Take(questionsCount).ToArray<int>();
 
             ViewBag.QuestionsIDs = QuestionsIDs;
-            
             ViewBag.QuestionsCount = QuestionsIDs.Length;
+
             return View();
         }
 
@@ -42,6 +49,19 @@ namespace GeekTest.Controllers
             
             return PartialView("_Answers", model);
         }
+        
+        public void setAnswer(bool value, int id)
+        {
+            answersArray[id] = value;
+        }
 
+        public ActionResult Finish()
+        {
+            TempData["index"] = testNum;
+            TempData["QuestionsIDs"] = QuestionsIDs;
+            TempData["answersArray"] = answersArray;
+            TempData["questionsCount"] = questionsCount;
+            return Redirect("../Results/Index");
+        }               
     }
 }

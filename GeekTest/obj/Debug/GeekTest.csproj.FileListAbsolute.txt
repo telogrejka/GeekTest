@@ -83,4 +83,4 @@ E:\Projects\VS2013\GeekTest\GeekTest\bin\zh-Hans\System.Spatial.resources.dll
 E:\Projects\VS2013\GeekTest\GeekTest\bin\zh-Hant\System.Spatial.resources.dll
 E:\Projects\VS2013\GeekTest\GeekTest\obj\Debug\GeekTest.dll
 E:\Projects\VS2013\GeekTest\GeekTest\obj\Debug\GeekTest.pdb
-E:\Projects\VS2013\GeekTest\GeekTest\obj\Debug\GeekTest.csprojResolveAssemblyReference.cache
+E:\Projects\VS2013\GeekTest\GeekTest\bin\Content\site.css

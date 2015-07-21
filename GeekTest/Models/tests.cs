@@ -16,11 +16,13 @@ namespace GeekTest.Models
     public partial class tests
     {
         public int id { get; set; }
-        [Display(Name="Название теста")]
+        [Display(Name = "Название теста")]
         public string test_name { get; set; }
         [Display(Name = "Время (минут)")]
         public int duration { get; set; }
         [Display(Name = "Описание")]
         public string test_info { get; set; }
+        [Display(Name = "Количество вопросов")]
+        public int questionsCount { get; set; }
     }
 }

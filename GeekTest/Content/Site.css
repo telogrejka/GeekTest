@@ -34,6 +34,16 @@ a {
         background-color: #c7d1d6;
     }
 
+    #mylink a{
+        text-decoration: underline;
+        font-weight: 500;
+        color: #0d82c6;
+    }
+
+    #mylink a:hover {
+        background-color: initial;
+    }
+
 header, footer, hgroup,
 nav, section {
     display: block;

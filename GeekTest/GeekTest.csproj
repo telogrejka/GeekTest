@@ -237,7 +237,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\github.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -311,8 +310,6 @@
       <DependentUpon>TestDataModel.edmx</DependentUpon>
       <LastGenOutput>TestDataModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\build.log" />
-    <Content Include="Scripts\bower.json" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\disableCopy.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -328,13 +325,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
-    <Content Include="Scripts\LICENSE.txt" />
     <Content Include="Scripts\loadQuestion.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\polymer-micro.html" />
-    <Content Include="Scripts\polymer-mini.html" />
-    <Content Include="Scripts\polymer.html" />
-    <Content Include="Scripts\rainbow-custom.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -342,7 +334,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\_references.js" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
