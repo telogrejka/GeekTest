@@ -12,7 +12,7 @@ namespace GeekTest.Controllers
     {
         AnswerContext db = new AnswerContext();
         static int [] QuestionsIDs;     //Массив ID-шников вопросов
-        static bool[] answersArray = new bool[21];     //Массив ответов (отсчет начинается с 1) костыль :(
+        static int[] answersArray = new int[21];     //Массив ответов (отсчет начинается с 1) костыль :(
         static int testNum = 0;
         static int questionsCount = 0;
         //
@@ -50,9 +50,9 @@ namespace GeekTest.Controllers
             return PartialView("_Answers", model);
         }
         
-        public void setAnswer(bool value, int id)
+        public void setAnswer(int id, int answerID)
         {
-            answersArray[id] = value;
+            answersArray[id] = answerID;
         }
 
         public ActionResult Finish()

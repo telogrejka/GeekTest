@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model List<List<GeekTest.Models.answers>>
 
 @section featured {
     <section class="featured">
@@ -47,13 +48,27 @@
     @for (int i = 0; i < ViewBag.questionList.Count; i++)
     {
         <pre><code>@ViewBag.questionList[i]</code></pre>
-        foreach (var answer in ViewBag.answersList[i])
+        foreach (var answer in Model.ElementAt(i))
         {
-            
-            <p style="background-color: #00FF33;">
-                <input style="width: 15px; "
-                       checked="checked" type="radio" name="@i" disabled> @answer
+            string pID = Guid.NewGuid().ToString();
+            string radioID = Guid.NewGuid().ToString();
+            <p id="@pID">
+                <input style="width: 15px;" id="@radioID" type="radio" name="@i" disabled> @answer.answer
             </p>
+
+            var userAnswerID = ViewBag.userAnswers[i + 1];
+            if (answer.id == userAnswerID)
+            {
+                <script>
+                    document.getElementById("@radioID").setAttribute("checked", "checked")
+                </script>
+            }
+            if(answer.correct_answer)
+            {
+                <script>
+                    document.getElementById("@pID").style["background-color"] = "#00FF33";
+                </script>
+            }
         }
         <hr />
     }

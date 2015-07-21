@@ -22,7 +22,7 @@
         @foreach (var item in Model)
         {
             <p>
-                <input style="width:15px" type="radio" name="radioQuestion" value=@item.correct_answer> @item.answer
+                <input style="width:15px" type="radio" name="radioQuestion" value=@item.id> @item.answer
             </p>
         }
     </form>

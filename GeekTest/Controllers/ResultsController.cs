@@ -17,10 +17,11 @@ namespace GeekTest.Controllers
             ViewBag.Title = "Результат прохождения теста";
             ViewBag.Date = DateTime.Now;
             int[] QuestionsIDs = null;
-            bool[] answersArray = null;
+            int[] userAnswers = null;
             int required = 0;
             int questionsCount = 0;
             AnswerContext db = new AnswerContext();
+            List<List<answers>> answersModel = new List<List<answers>>();
 
             if(TempData["index"] != null)
             {
@@ -50,12 +51,28 @@ namespace GeekTest.Controllers
             }
             if (TempData["answersArray"] != null)
             {
-                answersArray = TempData["answersArray"] as bool[];
-                ViewBag.answersArray = answersArray;
-                int trueCount = 0;
-                for (int i = 1; i < answersArray.Length; i++)
+                userAnswers = TempData["answersArray"] as int[];
+                ViewBag.userAnswers = userAnswers;
+
+                for (int i = 0; i < QuestionsIDs.Length; i++)
                 {
-                    if (answersArray[i]) trueCount++;
+                    var tmp = QuestionsIDs[i];
+                    answersModel.Add((from a in db.answers
+                                            where a.parent_question == tmp
+                                            select a).ToList<answers>());
+                }
+
+                int trueCount = 0;
+                for (int i = 1; i < userAnswers.Length; i++)
+                {
+                    var tmp = userAnswers[i];
+                    if (tmp != 0 &&
+                            (from a in db.answers
+                                where a.id == tmp
+                                select a).Single().correct_answer)
+                    {
+                        trueCount++;
+                    }
                 }
                 ViewBag.TrueAnswers = trueCount;
             
@@ -70,13 +87,10 @@ namespace GeekTest.Controllers
                     answersList.Add((from a in db.answers
                                             where a.parent_question == tmp
                                             select a.answer).ToList<string>());
-
-                }
+               }
                 ViewBag.answersList = answersList;
             }
-           
-
-            return View();
+            return View(answersModel);
         }
 
     }

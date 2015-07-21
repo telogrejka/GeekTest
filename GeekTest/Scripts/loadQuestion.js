@@ -8,17 +8,10 @@ function load(testNum) {
         }
     });
 
-    if ($("#myForm input[type='radio']:checked").val() == 'value') {
+    if ($("#myForm input[type='radio']:checked").val() > 0) {
         $.ajax({
-            url: '../Testing/setAnswer?value=true&id=' + id
+            url: '../Testing/setAnswer?id=' + id + '&answerID=' + $("#myForm input[type='radio']:checked").val()
         });
-    }
-    else {
-        if(id != 0){
-            $.ajax({
-                url: '../Testing/setAnswer?value=false&id=' + id
-            });
-        }
     }
 
     id++;
