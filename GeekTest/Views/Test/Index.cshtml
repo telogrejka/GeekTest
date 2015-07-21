@@ -21,6 +21,9 @@
         <th>
             @Html.DisplayNameFor(model => model.test_info)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.questionsCount)
+        </th>
         <th></th>
     </tr>
 
@@ -34,6 +37,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.test_info)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.questionsCount)
         </td>
         <td>
             @Html.ActionLink("Редактировать", "Edit", new { id=item.id }) 

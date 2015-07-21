@@ -11,11 +11,11 @@
         var answer = Model.FirstOrDefault();
         if (answer != null)
         {
-            var query = (from q in db.questions
-                         where q.id == answer.parent_question
-                         select q).ToList();
+            string question = (from q in db.questions
+                               where q.id == answer.parent_question
+                               select q).First().question;
 
-            <pre><code data-language="csharp" >@query.First().question </code></pre>
+            <pre><code data-language="csharp" >@question</code></pre>
         }
     }
     <form id="myForm" name="myForm">

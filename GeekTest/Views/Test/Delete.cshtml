@@ -32,6 +32,14 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.test_info)
     </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.questionsCount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.questionsCount)
+    </div>
+
 </fieldset>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()

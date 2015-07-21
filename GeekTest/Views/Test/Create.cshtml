@@ -38,10 +38,17 @@
             @Html.ValidationMessageFor(model => model.test_info)
         </div>
 
-        <p>
-            <input type="submit" value="Создать" />
-        </p>
-    </fieldset>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.questionsCount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.questionsCount)
+            @Html.ValidationMessageFor(model => model.questionsCount)
+        </div>
+            <p>
+                <input type="submit" value="Создать" />
+            </p>
+</fieldset>
 }
 
 <div>
