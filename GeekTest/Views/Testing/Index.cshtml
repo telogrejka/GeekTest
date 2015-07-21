@@ -52,10 +52,10 @@
 <body>
     <script>
         var tmp = @Html.Raw(Json.Encode(ViewBag.QuestionsIDs))
-        load(@ViewBag.Index);
+        load(@ViewBag.Index)
     </script>
 
-    @for (int i = 1; i <= ViewBag.QuestionsCount; i++)
+    @*@for (int i = 1; i <= ViewBag.QuestionsCount; i++)
     {        
         @Ajax.ActionLink(@i.ToString(), "GetQuestion", new { parentQuestion = ViewBag.QuestionsIDs[i-1] },
         new AjaxOptions
@@ -64,7 +64,7 @@
             UpdateTargetId = "divQuestion",
             InsertionMode = InsertionMode.Replace
         })
-    }
+    }*@
     
     <div id="divQuestion"></div>
     

@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 
 namespace GeekTest.Controllers
 {
@@ -12,7 +10,7 @@ namespace GeekTest.Controllers
     {
         AnswerContext db = new AnswerContext();
         static int [] QuestionsIDs;     //Массив ID-шников вопросов
-        static int[] answersArray = new int[21];     //Массив ответов (отсчет начинается с 1) костыль :(
+        static int[] answersArray;      //Массив ответов (отсчет начинается с 1)
         static int testNum = 0;
         static int questionsCount = 0;
         //
@@ -21,24 +19,34 @@ namespace GeekTest.Controllers
         public ActionResult Index(int index)
         {
             testNum = index;
-            var test = (from t in db.tests
-                        where t.id == testNum
-                        select t);
-            questionsCount = test.First().questionsCount;
-            ViewBag.Duration = test.First().duration;
+            
+            GetTestInfo();
+            GetQuestions();
 
-            ViewBag.Title = Methods.GetTitle(index);
-            ViewBag.Index = index;
+            return View();
+        }
 
+        private void GetQuestions()
+        {
             QuestionsIDs = (from q in db.questions
-                            where q.parent_test == index
+                            where q.parent_test == testNum
                             orderby Guid.NewGuid()
                             select q.id).Take(questionsCount).ToArray<int>();
 
             ViewBag.QuestionsIDs = QuestionsIDs;
             ViewBag.QuestionsCount = QuestionsIDs.Length;
+        }
 
-            return View();
+        private void GetTestInfo()
+        {
+            var test = (from t in db.tests
+                        where t.id == testNum
+                        select t);
+            questionsCount = test.Single().questionsCount;
+            answersArray = new int[questionsCount + 1];
+            ViewBag.Duration = test.Single().duration;
+            ViewBag.Title = Methods.GetTitle(testNum);
+            ViewBag.Index = testNum;
         }
 
         public PartialViewResult GetQuestion(int parentQuestion)
