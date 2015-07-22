@@ -192,6 +192,7 @@
     <Compile Include="Controllers\ResultsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\TestingController.cs" />
+    <Compile Include="Controllers\UserResultsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -207,7 +208,10 @@
     <Compile Include="Models\questions.cs">
       <DependentUpon>TestDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RolesContext.cs" />
+    <Compile Include="Models\results.cs">
+      <DependentUpon>TestDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResultsContext.cs" />
     <Compile Include="Models\TestContext.cs" />
     <Compile Include="Models\TestDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -310,6 +314,7 @@
       <DependentUpon>TestDataModel.edmx</DependentUpon>
       <LastGenOutput>TestDataModel.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\myprofile.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\disableCopy.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -327,7 +332,9 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\loadQuestion.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -389,6 +396,7 @@
     <Content Include="Views\Test\Edit.cshtml" />
     <Content Include="Views\Test\Delete.cshtml" />
     <Content Include="Views\Testing\_Answers.cshtml" />
+    <Content Include="Views\UserResults\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

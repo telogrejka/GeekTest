@@ -11,12 +11,16 @@ namespace GeekTest.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class answers
     {
         public int id { get; set; }
+        [Display(Name = "Ответ")]
         public string answer { get; set; }
+        [Display(Name = "Вопрос")]
         public int parent_question { get; set; }
+        [Display(Name = "Правильный")]
         public bool correct_answer { get; set; }
     }
 }

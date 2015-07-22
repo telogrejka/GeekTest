@@ -12,18 +12,23 @@ namespace GeekTest.Controllers
         static int[] userAnswers = null;
         static int required = 0;
         static int questionsCount = 0;
+        static int trueCount = 0;
+        static string testName;
         AnswerContext db = new AnswerContext();
         List<List<answers>> answersModel = new List<List<answers>>();
+        DateTime currDate = DateTime.Now;
 
         public ActionResult Index()
         {
             ViewBag.Title = "Результат прохождения теста";
-            ViewBag.Date = DateTime.Now;
+            ViewBag.Date = currDate;
 
             if(TempData["index"] != null)
             {
-                ViewBag.Index = (int)TempData["index"];
-                ViewBag.TestName = Methods.GetTitle((int)TempData["index"]);
+                int testID = (int)TempData["index"];
+                ViewBag.Index = testID;
+                testName = Methods.GetTitle(testID);
+                ViewBag.TestName = testName;
             }
             if (TempData["questionsCount"] != null)
             {
@@ -44,10 +49,24 @@ namespace GeekTest.Controllers
                 ViewBag.userAnswers = userAnswers;
 
                 GenerateAnswersModel();
-                CountTrueAnswers();
+                trueCount = CountTrueAnswers();
                 GenerateAnswersList();
             }
+
+            SaveResults();
+
             return View(answersModel);
+        }
+
+        private void SaveResults()
+        {
+            results userResult = new results();
+            userResult.date = currDate;
+            userResult.test_name = testName;
+            userResult.point = trueCount * 100 / questionsCount;
+            userResult.user_name = System.Web.HttpContext.Current.User.Identity.Name;
+            db.results.Add(userResult);
+            db.SaveChanges();
         }
 
         private void GenerateQuestionsList()
@@ -87,7 +106,7 @@ namespace GeekTest.Controllers
             ViewBag.answersList = answersList;
         }
 
-        private void CountTrueAnswers()
+        private int CountTrueAnswers()
         {
             int trueCount = 0;
             for (int i = 1; i < userAnswers.Length; i++)
@@ -106,6 +125,8 @@ namespace GeekTest.Controllers
             if (trueCount >= required)
                 ViewBag.IsPassed = true;
             else ViewBag.IsPassed = false;
+
+            return trueCount;
         }
 
     }

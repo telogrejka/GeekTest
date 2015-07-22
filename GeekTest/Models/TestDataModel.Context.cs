@@ -30,5 +30,6 @@ namespace GeekTest.Models
         public DbSet<webpages_Roles> webpages_Roles { get; set; }
         public DbSet<webpages_UsersInRoles> webpages_UsersInRoles { get; set; }
         public DbSet<tests> tests { get; set; }
+        public DbSet<results> results { get; set; }
     }
 }

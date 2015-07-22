@@ -22,6 +22,7 @@ namespace GeekTest
             Database.SetInitializer<TestContext>(null);
             Database.SetInitializer<QuestionContext>(null);
             Database.SetInitializer<AnswerContext>(null);
+            Database.SetInitializer<ResultsContext>(null);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
