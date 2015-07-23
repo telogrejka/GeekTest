@@ -23,6 +23,8 @@ namespace GeekTest.Models
         [Display(Name = "Правильных ответов, %")]
         public double point { get; set; }
         [Display(Name = "Дата")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime date { get; set; }
     }
 }

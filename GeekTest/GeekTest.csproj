@@ -397,6 +397,10 @@
     <Content Include="Views\Test\Delete.cshtml" />
     <Content Include="Views\Testing\_Answers.cshtml" />
     <Content Include="Views\UserResults\Index.cshtml" />
+    <Content Include="Views\UserResults\userResults.cshtml" />
+    <Content Include="Views\UserResults\testResults.cshtml" />
+    <Content Include="Views\UserResults\whoPassed.cshtml" />
+    <Content Include="Views\UserResults\dateResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,5 +19,6 @@ namespace GeekTest.Models
         }
 
         public DbSet<results> results { get; set; }
+        public DbSet<tests> tests { get; set; }
     }
 }

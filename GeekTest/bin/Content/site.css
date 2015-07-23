@@ -494,6 +494,7 @@ input, textarea {
         font-size: 1em;
         padding: 4px;
         margin-right: 4px;
+        font-weight: 500;
     }
 
 /* info and errors */
@@ -553,11 +554,15 @@ input[type="checkbox"].input-validation-error {
 
 /* tables
 ----------------------------------------------------------*/
+
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+    /*border-collapse: collapse;
+    border-spacing: 0;*/
+    border-collapse: separate; 
+    border-spacing: 10px 0px;
     margin-top: 0.75em;
     border: 0 none;
+    /*text-align:justify;*/
 }
 
 th {
@@ -611,7 +616,6 @@ td {
 tr.pager td {
     padding: 0 0.25em 0 0;
 }
-
 
 /********************
 *   Mobile Styles   *

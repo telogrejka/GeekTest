@@ -1,6 +1,54 @@
 ﻿@model IEnumerable<GeekTest.Models.results>
 
 <h2>@ViewBag.Title</h2>
+<hr />
+
+<table>
+    <tr>
+        <td>
+            <form action="../UserResults/userResults">
+                Показать результаты пользователя <input name="userName" type="text" style="width:150px; height:16px;" />
+                <input type="submit" value="Ок" />
+            </form>
+        </td>
+        <td>
+            <form action="../UserResults/testResults">
+                Показать результаты по тесту
+                <select name="testName">
+                    @foreach (var item in ViewBag.test_name)
+                    {
+                        <option value="@item.Value">@item.Value</option>
+                    }
+                </select>
+                <input type="submit" value="Ок" />
+            </form>
+        </td>
+        <td>
+            <input type="button" value="Показать только успешно пройденные" id="resbutton"
+                   onclick="location.href='@Url.Action("whopassed", "UserResults")'" />
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <form action="../UserResults/dateResults">
+            <td>
+                Показать с <input style="width:150px" class="text-box single-line" data-val="true" name="firstDate" type="date" value="">
+            </td>
+            <td>
+                по <input style="width:150px" class="text-box single-line" data-val="true" name="secondDate" type="date" value="">
+                <input type="submit" value="Ок" />
+            </td>
+        </form>
+        <td>
+            <form action="../UserResults/dateResults">
+                Показать топ <input name="topNumber" value="10" type="number" style="width:60px; height:16px;" />
+                <input type="submit" value="Ок" />
+            </form>
+</td>
+</tr>
+</table>
+
 
 <table>
     <tr>
@@ -37,5 +85,5 @@
     }
 </table>
 <p>
-    @Html.ActionLink("Назад", "../Admin/Index")
+    @Html.ActionLink("Назад", "Index")
 </p>
