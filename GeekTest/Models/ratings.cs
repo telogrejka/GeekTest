@@ -13,16 +13,12 @@ namespace GeekTest.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     
-    public partial class results
+    public partial class ratings
     {
         public int id { get; set; }
         [Display(Name = "Пользователь")]
-        public string user_name { get; set; }
-        [Display(Name = "Название теста")]
-        public string test_name { get; set; }
-        [Display(Name = "Результат, %")]
-        public double point { get; set; }
-        [Display(Name = "Дата прохождения теста")]
-        public System.DateTime date { get; set; }
+        public string userName { get; set; }
+        [Display(Name = "Рейтинг")]
+        public Nullable<double> rating { get; set; }
     }
 }

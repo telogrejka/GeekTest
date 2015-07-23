@@ -208,6 +208,9 @@
     <Compile Include="Models\questions.cs">
       <DependentUpon>TestDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ratings.cs">
+      <DependentUpon>TestDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\results.cs">
       <DependentUpon>TestDataModel.tt</DependentUpon>
     </Compile>
@@ -401,6 +404,7 @@
     <Content Include="Views\UserResults\testResults.cshtml" />
     <Content Include="Views\UserResults\whoPassed.cshtml" />
     <Content Include="Views\UserResults\dateResults.cshtml" />
+    <Content Include="Views\UserResults\topResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

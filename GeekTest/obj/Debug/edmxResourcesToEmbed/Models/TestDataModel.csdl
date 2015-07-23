@@ -28,6 +28,7 @@
     </AssociationSet>
     <EntitySet Name="tests" EntityType="GeekTestModel.tests" />
     <EntitySet Name="results" EntityType="GeekTestModel.results" />
+    <EntitySet Name="ratings" EntityType="GeekTestModel.ratings" />
   </EntityContainer>
   <EntityType Name="webpages_Roles">
     <Key>
@@ -77,5 +78,13 @@
     <Property Name="test_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="point" Type="Double" Nullable="false" />
     <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ratings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rating" Type="Double" />
   </EntityType>
 </Schema>

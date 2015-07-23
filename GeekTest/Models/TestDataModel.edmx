@@ -22,6 +22,14 @@
           <Property Name="question" Type="text" Nullable="false" />
           <Property Name="parent_test" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="ratings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="rating" Type="float" />
+        </EntityType>
         <EntityType Name="results">
           <Key>
             <PropertyRef Name="id" />
@@ -72,6 +80,7 @@
         <EntityContainer Name="GeekTestModelStoreContainer">
           <EntitySet Name="answers" EntityType="Self.answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="questions" EntityType="Self.questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ratings" EntityType="Self.ratings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="results" EntityType="Self.results" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tests" EntityType="Self.tests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
@@ -113,6 +122,7 @@
           </AssociationSet>
           <EntitySet Name="tests" EntityType="GeekTestModel.tests" />
           <EntitySet Name="results" EntityType="GeekTestModel.results" />
+          <EntitySet Name="ratings" EntityType="GeekTestModel.ratings" />
         </EntityContainer>
         <EntityType Name="webpages_Roles">
           <Key>
@@ -162,6 +172,14 @@
           <Property Name="test_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="point" Type="Double" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="ratings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rating" Type="Double" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -222,6 +240,15 @@
                 <ScalarProperty Name="point" ColumnName="point" />
                 <ScalarProperty Name="test_name" ColumnName="test_name" />
                 <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ratings">
+            <EntityTypeMapping TypeName="GeekTestModel.ratings">
+              <MappingFragment StoreEntitySet="ratings">
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

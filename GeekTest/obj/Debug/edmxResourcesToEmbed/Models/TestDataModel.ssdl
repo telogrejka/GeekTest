@@ -17,6 +17,14 @@
     <Property Name="question" Type="text" Nullable="false" />
     <Property Name="parent_test" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="ratings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="50" />
+    <Property Name="rating" Type="float" />
+  </EntityType>
   <EntityType Name="results">
     <Key>
       <PropertyRef Name="id" />
@@ -67,6 +75,7 @@
   <EntityContainer Name="GeekTestModelStoreContainer">
     <EntitySet Name="answers" EntityType="Self.answers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="questions" EntityType="Self.questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ratings" EntityType="Self.ratings" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="results" EntityType="Self.results" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tests" EntityType="Self.tests" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
