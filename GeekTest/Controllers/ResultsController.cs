@@ -14,7 +14,7 @@ namespace GeekTest.Controllers
         static int questionsCount = 0;
         static int trueCount = 0;
         static string testName;
-        AnswerContext db = new AnswerContext();
+        TestContext db = new TestContext();
         List<List<answers>> answersModel = new List<List<answers>>();
         DateTime currDate = DateTime.Now;
 

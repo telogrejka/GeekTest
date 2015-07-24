@@ -11,7 +11,7 @@ namespace GeekTest.Controllers
 {
     public class UserResultsController : Controller
     {
-        private ResultsContext db = new ResultsContext();
+        private TestContext db = new TestContext();
 
         private void PopulateTestsDropDownList(object selectedQuestion = null)
         {

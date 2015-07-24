@@ -8,7 +8,7 @@ namespace GeekTest.Controllers
 {
     public class TestingController : Controller
     {
-        AnswerContext db = new AnswerContext();
+        TestContext db = new TestContext();
         static int [] QuestionsIDs;     //Массив ID-шников вопросов
         static int[] answersArray;      //Массив ответов (отсчет начинается с 1)
         static int testNum = 0;

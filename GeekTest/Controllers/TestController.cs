@@ -13,6 +13,19 @@ namespace GeekTest.Controllers
     {
         private TestContext db = new TestContext();
 
+        public PartialViewResult Search(string searchString)
+        {
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                var model = db.tests.Where(t => t.test_name.Contains(searchString));
+                return PartialView("_Search", model);
+            }
+            else
+            {
+                return PartialView("_Search", db.tests.ToList());
+            }
+        }
+
         //
         // GET: /Test/
 

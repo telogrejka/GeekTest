@@ -11,7 +11,7 @@ namespace GeekTest.Controllers
 {
     public class AnswerController : Controller
     {
-        private AnswerContext db = new AnswerContext();
+        private TestContext db = new TestContext();
 
         //Построение выпадающего списка
         private void PopulateQuestionsDropDownList(object selectedQuestion = null)

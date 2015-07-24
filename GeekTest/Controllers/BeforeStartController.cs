@@ -23,7 +23,7 @@ namespace GeekTest.Controllers
         {
             ViewBag.Title = Methods.GetTitle(index);
 
-            QuestionContext db = new QuestionContext();
+            TestContext db = new TestContext();
 
             int QuestionsCount = (from q in db.questions
                                   where q.parent_test == index

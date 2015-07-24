@@ -200,11 +200,9 @@
     </Compile>
     <Compile Include="Methods.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\AnswerContext.cs" />
     <Compile Include="Models\answers.cs">
       <DependentUpon>TestDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QuestionContext.cs" />
     <Compile Include="Models\questions.cs">
       <DependentUpon>TestDataModel.tt</DependentUpon>
     </Compile>
@@ -214,7 +212,6 @@
     <Compile Include="Models\results.cs">
       <DependentUpon>TestDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ResultsContext.cs" />
     <Compile Include="Models\TestContext.cs" />
     <Compile Include="Models\TestDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -234,7 +231,6 @@
     <Compile Include="Models\tests.cs">
       <DependentUpon>TestDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UsersInRolesContext.cs" />
     <Compile Include="Models\webpages_Roles.cs">
       <DependentUpon>TestDataModel.tt</DependentUpon>
     </Compile>
@@ -339,6 +335,7 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\loadQuestion.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\searching.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -409,6 +406,7 @@
     <Content Include="Views\UserResults\dateResults.cshtml" />
     <Content Include="Views\UserResults\topResults.cshtml" />
     <Content Include="Views\Results\Index.cshtml" />
+    <Content Include="Views\Test\_Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
