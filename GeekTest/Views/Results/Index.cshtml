@@ -15,7 +15,7 @@
 <html>
 <body>
 
-    <table style="font-size: 1.75em">
+    <table style="font-size: 1.75em; border-collapse: separate; border-spacing: 0px;">
         <tr>
             <td style="padding-right:8px;">
                 <b>@ViewBag.TestName</b>
@@ -47,7 +47,17 @@
 
     @for (int i = 0; i < ViewBag.questionList.Count; i++)
     {
-        <pre><code>@ViewBag.questionList[i]</code></pre>
+        <table style="border-collapse: separate; border-spacing: 0px;">
+            <tr>
+                <td style="vertical-align:top; padding:10px;">
+                    <img id="@i" src="~/Images/wrong.gif" />
+                </td>
+                <td style="vertical-align:top;">
+                    <pre style="width:650px; margin-top:0px; margin-bottom:0px;"><code>@ViewBag.questionList[i]</code></pre>
+                </td>
+            </tr>
+        </table>
+        
         foreach (var answer in Model.ElementAt(i))
         {
             string pID = Guid.NewGuid().ToString();
@@ -62,6 +72,12 @@
                 <script>
                     document.getElementById("@radioID").setAttribute("checked", "checked")
                 </script>
+                if (answer.correct_answer)
+                {
+                     <script>
+                        document.getElementById("@i").setAttribute("src", "/Images/answered.gif")
+                    </script>
+                }
             }
             if(answer.correct_answer)
             {
@@ -72,6 +88,6 @@
         }
         <hr />
     }
-   
+    
 </body>
 </html>

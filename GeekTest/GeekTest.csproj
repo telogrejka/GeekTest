@@ -298,12 +298,16 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="favicon.ico" />
+    <Content Include="favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Global.asax" />
     <EntityDeploy Include="Models\TestDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TestDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\answered.gif" />
+    <Content Include="Images\wrong.gif" />
     <Content Include="Models\TestDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TestDataModel.edmx</DependentUpon>
@@ -386,7 +390,6 @@
     <Content Include="Views\Answer\Delete.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Testing\Index.cshtml" />
-    <Content Include="Views\Results\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
@@ -405,6 +408,7 @@
     <Content Include="Views\UserResults\whoPassed.cshtml" />
     <Content Include="Views\UserResults\dateResults.cshtml" />
     <Content Include="Views\UserResults\topResults.cshtml" />
+    <Content Include="Views\Results\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
