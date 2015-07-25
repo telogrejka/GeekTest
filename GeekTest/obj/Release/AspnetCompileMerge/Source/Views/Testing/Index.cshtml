@@ -18,19 +18,43 @@
 <head>
     <script src="~/Scripts/jquery-1.8.2.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Scripts/loadQuestion.js"></script>
-    <script src="~/Scripts/countDown.js"></script>
-    <script src="~/Scripts/CodeMirror/codemirror.js"></script>
-    <script src="~/Scripts/CodeMirror/clike.js"></script>
-    <link href="~/Content/codemirror.css" rel="stylesheet" />
+    @* Скрипт для отсчета времени до завершения теста *@
     <script>
-        var tmp = @Html.Raw(Json.Encode(ViewBag.QuestionsIDs))
         var duration = @ViewBag.Duration
-        var Index = @ViewBag.Index
-        load(@ViewBag.Index);
+
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = 0;
+                alert('Время вышло.');
+                location.href = '@Url.Action("Index", "Results", new { index = @ViewBag.Index }, null)';
+            }
+        }, 1000);
+    }
+    
+    window.onload = function () {
+        var Minutes = 60 * duration,
+            display = document.querySelector('#countdown');
+        startTimer(Minutes, display);
+    };
     </script>
+    <script src="~/Scripts/loadQuestion.js"></script>
 </head>
 <body>
+    <script>
+        var tmp = @Html.Raw(Json.Encode(ViewBag.QuestionsIDs))
+        load(@ViewBag.Index)
+    </script>
+
     @*@for (int i = 1; i <= ViewBag.QuestionsCount; i++)
     {        
         @Ajax.ActionLink(@i.ToString(), "GetQuestion", new { parentQuestion = ViewBag.QuestionsIDs[i-1] },

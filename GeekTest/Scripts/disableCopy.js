@@ -5,7 +5,6 @@
 function reEnable() {
     return true
 }
-
 document.onselectstart = new Function ("return false")
 
 if (window.sidebar) {
