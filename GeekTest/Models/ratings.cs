@@ -12,7 +12,9 @@ namespace GeekTest.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    [Table("ratings")]
     public partial class ratings
     {
         public int id { get; set; }

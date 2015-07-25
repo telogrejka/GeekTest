@@ -303,6 +303,8 @@
       <LastGenOutput>TestDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Images\answered.gif" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\ulList.png" />
     <Content Include="Images\wrong.gif" />
     <Content Include="Models\TestDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
