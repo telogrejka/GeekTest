@@ -6,7 +6,8 @@
   /*font-family: monospace;
   height: 300px;
   color: black;*/
-
+    max-width: 650px; 
+    width: 650px;
     font-family: Consolas, 'Liberation Mono', Courier, monospace;
     font-size: 13px;
     color: #333;
@@ -247,7 +248,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   font-size: 13px;
   margin: 0;
   white-space: pre;
-  word-wrap: normal;
+  word-wrap: break-word;
   line-height: inherit;
   color: inherit;
   z-index: 2;

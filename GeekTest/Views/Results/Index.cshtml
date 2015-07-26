@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    @model List<List<GeekTest.Models.answers>>
 }
-@model List<List<GeekTest.Models.answers>>
 
 @section featured {
     <section class="featured">
@@ -13,8 +13,12 @@
     </section>
 }
 <html>
+<head>
+    <script src="~/Scripts/CodeMirror/codemirror.js"></script>
+    <script src="~/Scripts/CodeMirror/clike.js"></script>
+    <link href="~/Content/codemirror.css" rel="stylesheet" />
+</head>
 <body>
-
     <table style="font-size: 1.75em; border-collapse: separate; border-spacing: 0px;">
         <tr>
             <td style="padding-right:8px;">
@@ -47,16 +51,26 @@
 
     @for (int i = 0; i < ViewBag.questionList.Count; i++)
     {
+        string qID = Guid.NewGuid().ToString();
         <table style="border-collapse: separate; border-spacing: 0px;">
             <tr>
                 <td style="vertical-align:top; padding:10px;">
                     <img id="@i" src="~/Images/wrong.gif" />
                 </td>
-                <td style="vertical-align:top;">
-                    <pre style="width:650px; margin-top:0px; margin-bottom:0px;"><code>@ViewBag.questionList[i]</code></pre>
+                <td style="vertical-align: top;">
+                    @*<pre style="width:650px; margin-top:0px; margin-bottom:0px;"><code>@ViewBag.questionList[i]</code></pre>*@
+                    <textarea id="@qID" disabled="disabled">@ViewBag.questionList[i]</textarea>
+
+                    <script>
+                        var editor = CodeMirror.fromTextArea(document.getElementById("@qID"), {
+                            lineNumbers: true,
+                            matchBrackets: true,
+                            mode: "text/x-csharp"
+                        });
+                    </script>
                 </td>
             </tr>
-        </table>
+        </table>     
         
         foreach (var answer in Model.ElementAt(i))
         {
@@ -88,6 +102,12 @@
         }
         <hr />
     }
-    
+    <script>
+        $.ajax({
+            success: function (result) {
+                $('input[type="text"], textarea').attr('disabled', 'disabled');
+            }
+        });
+    </script>
 </body>
 </html>
