@@ -11,6 +11,7 @@ namespace GeekTest.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class webpages_Roles
     {
@@ -18,7 +19,7 @@ namespace GeekTest.Models
         {
             this.webpages_UsersInRoles = new HashSet<webpages_UsersInRoles>();
         }
-    
+        [Key]
         public int RoleId { get; set; }
         public string RoleName { get; set; }
     

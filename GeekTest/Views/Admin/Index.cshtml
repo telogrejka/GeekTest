@@ -5,13 +5,14 @@
 
 <h2>Панель управления</h2>
 <p>
-    @Html.ActionLink("Редактор тестов", "Index", "Test")
-    @Html.ActionLink("Редактор вопросов", "Index", "Question")
-    @Html.ActionLink("Редактор ответов", "Index", "Answer")
+    @Html.ActionLink("Тесты", "Index", "Test")
+    @Html.ActionLink("Вопросы", "Index", "Question")
+    @Html.ActionLink("Ответы", "Index", "Answer")
 </p>
 <p>
-    @Html.ActionLink("Редактор пользователей", "Index", "Users")
-    @*@Html.ActionLink("Редактор ролей", "Index", "Roles")*@
+    @Html.ActionLink("Пользователи", "Index", "Users")
+    @Html.ActionLink("Роли", "Index", "Roles")
+    @Html.ActionLink("Роли пользователей", "Index", "UsersInRoles")
 </p>
 <p>
     @Html.ActionLink("Результаты прохождения тестов", "Index", "UserResults")

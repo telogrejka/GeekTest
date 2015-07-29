@@ -8,22 +8,13 @@ using System.Web.Security;
 
 namespace GeekTest.Models
 {
-    public class UsersContext : DbContext
-    {
-        public UsersContext()
-            : base("TestDataModel")
-        {
-        }
-
-        public DbSet<UserProfile> UserProfiles { get; set; }
-    }
-
     [Table("UserProfile")]
     public class UserProfile
     {
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
+        [Display(Name = "Имя пользователя")]
         public string UserName { get; set; }
     }
 

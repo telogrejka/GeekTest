@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Админка";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Панель управления</h2>
+<p>
+    @Html.ActionLink("Редактор тестов", "Index", "Test")
+    @Html.ActionLink("Редактор вопросов", "Index", "Question")
+    @Html.ActionLink("Редактор ответов", "Index", "Answer")
+</p>
+<p>
+    @Html.ActionLink("Редактор пользователей", "Index", "Users")
+    @*@Html.ActionLink("Редактор ролей", "Index", "Roles")*@
+</p>
+<p>
+    @Html.ActionLink("Результаты прохождения тестов", "Index", "UserResults")
+</p>
+

@@ -25,11 +25,11 @@ namespace GeekTest.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<TestContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new TestContext())
                     {
                         if (!context.Database.Exists())
                         {

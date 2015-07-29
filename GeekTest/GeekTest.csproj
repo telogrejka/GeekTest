@@ -190,6 +190,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\ResultsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\TestingController.cs" />
     <Compile Include="Controllers\UserResultsController.cs" />
@@ -320,6 +321,11 @@
       <DependentUpon>TestDataModel.edmx</DependentUpon>
       <LastGenOutput>TestDataModel.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\geektest - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\geektest - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\geektest - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\geektest - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\geektest.pubxml" />
     <None Include="Properties\PublishProfiles\myprofile.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\CodeMirror\clike.js" />
@@ -412,6 +418,11 @@
     <Content Include="Views\UserResults\topResults.cshtml" />
     <Content Include="Views\Results\Index.cshtml" />
     <Content Include="Views\Test\_Search.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

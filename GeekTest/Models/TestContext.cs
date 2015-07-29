@@ -22,5 +22,8 @@ namespace GeekTest.Models
         public DbSet<questions> questions { get; set; }
         public DbSet<results> results { get; set; }
         public DbSet<ratings> ratings { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<webpages_Roles> roles { get; set; }
+        public DbSet<webpages_UsersInRoles> UsersInRoles { get; set; }
     }
 }

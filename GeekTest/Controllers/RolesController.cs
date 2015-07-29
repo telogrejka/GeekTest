@@ -9,33 +9,33 @@ using GeekTest.Models;
 
 namespace GeekTest.Controllers
 {
-    public class UsersController : Controller
+    public class RolesController : Controller
     {
         private TestContext db = new TestContext();
 
         //
-        // GET: /Users/
+        // GET: /Roles/
 
         public ActionResult Index()
         {
-            return View(db.UserProfiles.ToList());
+            return View(db.roles.ToList());
         }
 
         //
-        // GET: /Users/Details/5
+        // GET: /Roles/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            UserProfile userprofile = db.UserProfiles.Find(id);
-            if (userprofile == null)
+            webpages_Roles webpages_roles = db.roles.Find(id);
+            if (webpages_roles == null)
             {
                 return HttpNotFound();
             }
-            return View(userprofile);
+            return View(webpages_roles);
         }
 
         //
-        // GET: /Users/Create
+        // GET: /Roles/Create
 
         public ActionResult Create()
         {
@@ -43,73 +43,73 @@ namespace GeekTest.Controllers
         }
 
         //
-        // POST: /Users/Create
+        // POST: /Roles/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(UserProfile userprofile)
+        public ActionResult Create(webpages_Roles webpages_roles)
         {
             if (ModelState.IsValid)
             {
-                db.UserProfiles.Add(userprofile);
+                db.roles.Add(webpages_roles);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(userprofile);
+            return View(webpages_roles);
         }
 
         //
-        // GET: /Users/Edit/5
+        // GET: /Roles/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            UserProfile userprofile = db.UserProfiles.Find(id);
-            if (userprofile == null)
+            webpages_Roles webpages_roles = db.roles.Find(id);
+            if (webpages_roles == null)
             {
                 return HttpNotFound();
             }
-            return View(userprofile);
+            return View(webpages_roles);
         }
 
         //
-        // POST: /Users/Edit/5
+        // POST: /Roles/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(UserProfile userprofile)
+        public ActionResult Edit(webpages_Roles webpages_roles)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(userprofile).State = EntityState.Modified;
+                db.Entry(webpages_roles).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(userprofile);
+            return View(webpages_roles);
         }
 
         //
-        // GET: /Users/Delete/5
+        // GET: /Roles/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            UserProfile userprofile = db.UserProfiles.Find(id);
-            if (userprofile == null)
+            webpages_Roles webpages_roles = db.roles.Find(id);
+            if (webpages_roles == null)
             {
                 return HttpNotFound();
             }
-            return View(userprofile);
+            return View(webpages_roles);
         }
 
         //
-        // POST: /Users/Delete/5
+        // POST: /Roles/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            UserProfile userprofile = db.UserProfiles.Find(id);
-            db.UserProfiles.Remove(userprofile);
+            webpages_Roles webpages_roles = db.roles.Find(id);
+            db.roles.Remove(webpages_roles);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

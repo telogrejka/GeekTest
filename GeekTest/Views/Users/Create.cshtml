@@ -1,11 +1,11 @@
 ﻿@model GeekTest.Models.UserProfile
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Создать пользователя";
 }
 
-<h2>Создать пользователя</h2>
-
+<h2>@ViewBag.Title</h2>
+<br />
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -22,13 +22,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Создать" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Назад", "Index")
+    @Html.ActionLink("Назад", "Index", "Users")
 </div>
 
 @section Scripts {

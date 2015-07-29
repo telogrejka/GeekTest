@@ -11,9 +11,11 @@ namespace GeekTest.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class webpages_UsersInRoles
     {
+        [Key]
         public int UserId { get; set; }
         public int RoleId { get; set; }
     
