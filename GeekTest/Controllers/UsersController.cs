@@ -12,13 +12,35 @@ namespace GeekTest.Controllers
     public class UsersController : Controller
     {
         private TestContext db = new TestContext();
-
+        
         //
         // GET: /Users/
 
         public ActionResult Index()
         {
+            MakeRolesDic();
+
             return View(db.UserProfiles.ToList());
+        }
+
+        private void MakeRolesDic()
+        {
+            var userProfiles = db.UserProfiles.ToList();
+            var roles = db.roles.ToList();
+            var usersInRoles = db.UsersInRoles.ToList();
+
+            Dictionary<int, string> rolesDic = new Dictionary<int, string>();
+            foreach (var user in userProfiles)
+            {
+                var roleId = (from r in usersInRoles
+                              where r.UserId == user.UserId
+                              select r).Single().RoleId;
+                var roleName = (from r in roles
+                                where r.RoleId == roleId
+                                select r).Single().RoleName;
+                rolesDic.Add(user.UserId, roleName);
+            }
+            ViewBag.rolesDic = rolesDic;
         }
 
         //
@@ -64,12 +86,25 @@ namespace GeekTest.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+            PopulateRolesDropDownList();
             UserProfile userprofile = db.UserProfiles.Find(id);
             if (userprofile == null)
             {
                 return HttpNotFound();
             }
             return View(userprofile);
+        }
+
+        //Построение выпадающего списка ролей
+        private void PopulateRolesDropDownList(object selected = null)
+        {
+            var Query = (from d in db.roles
+                         orderby d.RoleId
+                         select d).ToList();
+
+            var rl = new SelectList(Query, "RoleId", "RoleName", selected);
+            
+            ViewBag.rolesList = rl;
         }
 
         //
@@ -82,6 +117,9 @@ namespace GeekTest.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(userprofile).State = EntityState.Modified;
+
+                db.UsersInRoles.Find(userprofile.UserId).RoleId = Convert.ToInt32(Request["rolesList"]);
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -93,6 +131,7 @@ namespace GeekTest.Controllers
 
         public ActionResult Delete(int id = 0)
         {
+            MakeRolesDic();
             UserProfile userprofile = db.UserProfiles.Find(id);
             if (userprofile == null)
             {

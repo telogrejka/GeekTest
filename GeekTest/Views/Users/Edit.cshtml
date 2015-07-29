@@ -23,6 +23,13 @@
             @Html.ValidationMessageFor(model => model.UserName)
         </div>
 
+        <div class="editor-label">
+            @Html.Label("Роль")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("rolesList")
+        </div>
+
         <p>
             <input type="submit" value="Сохранить" />
         </p>

@@ -1,11 +1,11 @@
 ﻿@model GeekTest.Models.UserProfile
 
 @{
-    ViewBag.Title = "Детали";
+    ViewBag.Title = "Details";
 }
 
-<h2>@ViewBag.Title</h2>
-<br />
+<h2>Детали</h2>
+
 <fieldset>
     <legend>UserProfile</legend>
 
@@ -18,5 +18,5 @@
 </fieldset>
 <p>
     @Html.ActionLink("Редактировать", "Edit", new { id=Model.UserId }) |
-    @Html.ActionLink("Назад", "Index", "Users")
+    @Html.ActionLink("Назад", "Index")
 </p>

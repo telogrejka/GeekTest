@@ -16,6 +16,14 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.UserName)
     </div>
+
+    <div class="display-label">
+        @Html.DisplayName("Роль")
+    </div>
+    <div>
+        @ViewBag.rolesDic[Model.UserId]
+    </div>
+
 </fieldset>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
