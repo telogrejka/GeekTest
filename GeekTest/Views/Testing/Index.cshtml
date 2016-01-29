@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2 style="font-weight:600">@ViewBag.Title</h2>
+                <p style="font-size:1.1em; font-weight:600; padding-left:5px">Осталось времени:
+                    <text id="countdown"> </text>
+                </p>
+            </hgroup>
+        </div>
+    </section>
+}
+<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/loadQuestion.js"></script>
+    <script src="~/Scripts/countDown.js"></script>
+    <script src="~/Scripts/CodeMirror/codemirror.js"></script>
+    <script src="~/Scripts/CodeMirror/clike.js"></script>
+    <link href="~/Content/codemirror.css" rel="stylesheet" />
+    <script>
+        var tmp = @Html.Raw(Json.Encode(ViewBag.QuestionsIDs))
+        var duration = @ViewBag.Duration
+        var Index = @ViewBag.Index
+        load(@ViewBag.Index);
+    </script>
+</head>
+<body>
+    @*@for (int i = 1; i <= ViewBag.QuestionsCount; i++)
+    {        
+        @Ajax.ActionLink(@i.ToString(), "GetQuestion", new { parentQuestion = ViewBag.QuestionsIDs[i-1] },
+        new AjaxOptions
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "divQuestion",
+            InsertionMode = InsertionMode.Replace
+        })
+    }
+    <br />*@
+    <div id="divQuestion"></div>
+    
+    <input type="button" id="replyButton" value="Ответить" onclick="load(@ViewBag.Index);" />
+
+    <br />
+    <input type="button" id="finishButton" value="Закончить тест" 
+           onclick="finishTest('Вы действительно хотите завершить прохождение теста?', @ViewBag.Index)" />
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @model List<List<GeekTest.Models.answers>>
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2 style="font-weight:600;">@ViewBag.Title</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+<html>
+<head>
+    <script src="~/Scripts/CodeMirror/codemirror.js"></script>
+    <script src="~/Scripts/CodeMirror/clike.js"></script>
+    <link href="~/Content/codemirror.css" rel="stylesheet" />
+</head>
+<body>
+    <table style="font-size: 1.75em; border-collapse: separate; border-spacing: 0px;">
+        <tr>
+            <td style="padding-right:8px;">
+                <b>@ViewBag.TestName</b>
+            </td>
+            <td style="padding-right:12px;">
+                @{
+                    if (ViewBag.IsPassed)
+                    {
+                        <div style="color:green"> пройден </div>
+                    }
+                    else
+                    {
+                        <div style="color:red"> не пройден </div>
+                    }
+                }
+            </td>
+            <td id="mylink">
+                @Html.ActionLink("пройти еще раз", "Index", "Testing", new { index = ViewBag.Index }, null)
+            </td>
+        </tr>
+    </table>
+
+    <p>
+        <b>Правильных ответов: </b>@ViewBag.TrueAnswers из @ViewBag.questionsCount (требуется @ViewBag.required)
+    </p>
+    <p>
+        <b>Дата прохождения теста:</b> @ViewBag.Date
+    </p>
+
+    @for (int i = 0; i < ViewBag.questionList.Count; i++)
+    {
+        string qID = Guid.NewGuid().ToString();
+        <table style="border-collapse: separate; border-spacing: 0px;">
+            <tr>
+                <td style="vertical-align:top; padding:10px;">
+                    <img id="@i" src="~/Images/wrong.gif" />
+                </td>
+                <td style="vertical-align: top;">
+                    @*<pre style="width:650px; margin-top:0px; margin-bottom:0px;"><code>@ViewBag.questionList[i]</code></pre>*@
+                    <textarea id="@qID" disabled="disabled">@ViewBag.questionList[i]</textarea>
+
+                    <script>
+                        var editor = CodeMirror.fromTextArea(document.getElementById("@qID"), {
+                            lineNumbers: true,
+                            matchBrackets: true,
+                            mode: "text/x-csharp"
+                        });
+                    </script>
+                </td>
+            </tr>
+        </table>     
+        
+        foreach (var answer in Model.ElementAt(i))
+        {
+            string pID = Guid.NewGuid().ToString();
+            string radioID = Guid.NewGuid().ToString();
+            <p id="@pID">
+                <input style="width: 15px;" id="@radioID" type="radio" name="@i" disabled> @answer.answer
+            </p>
+
+            var userAnswerID = ViewBag.userAnswers[i + 1];
+            if (answer.id == userAnswerID)
+            {
+                <script>
+                    document.getElementById("@radioID").setAttribute("checked", "checked")
+                </script>
+                if (answer.correct_answer)
+                {
+                     <script>
+                        document.getElementById("@i").setAttribute("src", "/Images/answered.gif")
+                    </script>
+                }
+            }
+            if(answer.correct_answer)
+            {
+                <script>
+                    document.getElementById("@pID").style["background-color"] = "#00FF33";
+                </script>
+            }
+        }
+        <hr />
+    }
+    <script>
+        $.ajax({
+            success: function (result) {
+                $('input[type="text"], textarea').attr('disabled', 'disabled');
+            }
+        });
+    </script>
+</body>
+</html>

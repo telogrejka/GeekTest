@@ -1,0 +1,34 @@
+﻿@model GeekTest.Models.UserProfile
+
+@{
+    ViewBag.Title = "Удалить";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Вы действительно хотите удалить этого пользователя?</h3><br />
+<fieldset>
+    <legend>UserProfile</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayName("Роль")
+    </div>
+    <div>
+        @ViewBag.rolesDic[Model.UserId]
+    </div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Назад", "Index", "Users")
+    </p>
+}

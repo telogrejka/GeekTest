@@ -1,0 +1,67 @@
+﻿@model IEnumerable<GeekTest.Models.tests>
+
+@{
+    ViewBag.Title = "Тесты";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Тесты</h2>
+<script src="~/Scripts/searching.js"></script>
+<table>
+    <tr>
+        <td>
+            @Html.ActionLink("Создать", "Create")
+        </td>
+        <td align="right">
+         @Html.TextBox("SearchString", null, new { style="width:200px; height:14 px;", id="searhTB"})
+         <input type="button" value="Поиск" onclick="search();"/>
+        </td>
+    </tr>
+</table>
+
+<div id="divResult">
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.test_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.test_info)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.questionsCount)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.test_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.test_info)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.questionsCount)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.id })
+                    @Html.ActionLink("Детали", "Details", new { id = item.id })
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Назад", "../Admin/Index")
+</p>

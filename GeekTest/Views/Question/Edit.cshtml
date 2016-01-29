@@ -1,0 +1,46 @@
+﻿@model GeekTest.Models.questions
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Редактирование вопроса</h2><br />
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>questions</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.question)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.question)
+            @Html.ValidationMessageFor(model => model.question)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.parent_test)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("parent_test")
+            @Html.ValidationMessageFor(model => model.parent_test)
+        </div>
+
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Назад", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,45 @@
+﻿@model GeekTest.Models.tests
+
+@{
+    ViewBag.Title = "Детали";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Детали</h2><br />
+
+<fieldset>
+    <legend>tests</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.test_name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.test_name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.duration)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.duration)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.test_info)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.test_info)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.questionsCount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.questionsCount)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

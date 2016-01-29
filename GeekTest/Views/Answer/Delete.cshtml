@@ -1,0 +1,40 @@
+﻿@model GeekTest.Models.answers
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы действительно хотите удалить этот вариант ответа?</h3>
+<fieldset>
+    <legend>answers</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.answer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.answer)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.parent_question)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.parent_question)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.correct_answer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.correct_answer)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Удалить" /> |
+        @Html.ActionLink("Назад", "Index")
+    </p>
+}

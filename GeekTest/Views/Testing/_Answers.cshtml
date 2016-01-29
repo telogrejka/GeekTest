@@ -1,0 +1,33 @@
+﻿@model IEnumerable<GeekTest.Models.answers>
+@using GeekTest.Models;
+
+@{
+    TestContext db = new TestContext();
+    var answer = Model.FirstOrDefault();
+    if (answer != null)
+    {
+        string question = (from q in db.questions
+                           where q.id == answer.parent_question
+                           select q).First().question;
+
+        <textarea id="code" name="code">@question</textarea>
+
+        <script>
+            var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+                lineNumbers: true,
+                matchBrackets: true,
+                mode: "text/x-csharp"
+            });
+            $('input[type="text"], textarea').attr('disabled', 'disabled');
+        </script>
+    }
+}
+<form id="myForm" name="myForm">
+    @foreach (var item in Model)
+    {
+        <p>
+            <input style="width:15px" type="radio" name="radioQuestion" value=@item.id> @item.answer
+        </p>
+    }
+</form>
+

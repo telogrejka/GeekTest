@@ -1,0 +1,63 @@
+﻿@model GeekTest.Models.tests
+
+@{
+    ViewBag.Title = "Редактировать";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Редактировать</h2><br />
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>tests</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.test_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.test_name)
+            @Html.ValidationMessageFor(model => model.test_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.duration)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.duration)
+            @Html.ValidationMessageFor(model => model.duration)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.test_info)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.test_info)
+            @Html.ValidationMessageFor(model => model.test_info)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.questionsCount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.questionsCount)
+            @Html.ValidationMessageFor(model => model.questionsCount)
+        </div>
+
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Назад", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

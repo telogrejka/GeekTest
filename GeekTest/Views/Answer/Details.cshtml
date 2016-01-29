@@ -1,0 +1,37 @@
+﻿@model GeekTest.Models.answers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детали</h2>
+<br />
+<fieldset>
+    <legend>answers</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.answer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.answer)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.parent_question)
+    </div>
+    <div class="display-field">
+        @*@Html.DisplayFor(model => model.parent_question)*@
+        @Html.Display("parent_question")
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.correct_answer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.correct_answer)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

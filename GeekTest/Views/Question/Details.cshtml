@@ -1,0 +1,30 @@
+﻿@model GeekTest.Models.questions
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детали</h2>
+<br />
+<fieldset>
+    <legend>questions</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.question)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.question)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.parent_test)
+    </div>
+    <div class="display-field">
+        @*@Html.DisplayFor(model => model.parent_test)*@
+        @Html.Display("parent_test")
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Назад", "Index")
+</p>
